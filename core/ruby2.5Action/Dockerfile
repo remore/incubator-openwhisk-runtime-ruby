@@ -21,4 +21,5 @@ RUN cd /action
 EXPOSE 8080
 ENV BUNDLE_GEMFILE /action/src/Gemfile
 ENV RUBYOPT -EUTF-8
-CMD [ "puma", "/action/config.ru", "-b", "tcp://0.0.0.0:8080" ]
+COPY boot.sh /action
+CMD [ "/bin/bash", "/action/boot.sh" ]
